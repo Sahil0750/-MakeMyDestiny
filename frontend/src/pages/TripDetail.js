@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getTrip } from '../services/tripService';
 import { createBooking } from '../services/bookingService';
@@ -17,11 +17,7 @@ const TripDetail = () => {
     travellerDetails: [{ name: '', age: '', gender: 'Male' }]
   });
 
-  useEffect(() => {
-    loadTrip();
-  }, [id]);
-
-  const loadTrip = async () => {
+  const loadTrip = useCallback(async () => {
     try {
       const data = await getTrip(id);
       setTrip(data.data);
@@ -30,7 +26,11 @@ const TripDetail = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    loadTrip();
+  }, [loadTrip]);
 
   const handleSeatsChange = (seats) => {
     const newSeats = parseInt(seats);

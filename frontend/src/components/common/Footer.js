@@ -16,10 +16,10 @@ const Footer = () => {
             From Jharkhand's hidden gems to iconic landmarks across the country.
           </p>
           <div className="social-links">
-            <a href="#" className="social-icon">&#128216;</a>
-            <a href="#" className="social-icon">&#128247;</a>
-            <a href="#" className="social-icon">&#128038;</a>
-            <a href="#" className="social-icon">&#128250;</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">&#128216;</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">&#128247;</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">&#128038;</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">&#128250;</a>
           </div>
         </div>
 
@@ -36,10 +36,10 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Popular Destinations</h4>
           <ul className="footer-links">
-            <li><a href="#">Netarhat, Jharkhand</a></li>
-            <li><a href="#">Manali, Himachal</a></li>
-            <li><a href="#">Goa Beaches</a></li>
-            <li><a href="#">Kerala Backwaters</a></li>
+            <li><Link to="/trips">Netarhat, Jharkhand</Link></li>
+            <li><Link to="/trips">Manali, Himachal</Link></li>
+            <li><Link to="/trips">Goa Beaches</Link></li>
+            <li><Link to="/trips">Kerala Backwaters</Link></li>
           </ul>
         </div>
 
@@ -58,11 +58,11 @@ const Footer = () => {
         <div className="footer-container">
           <p>&copy; 2024 MakeMyDestiny. All rights reserved.</p>
           <div className="footer-bottom-links">
-            <a href="#">Privacy Policy</a>
+            <Link to="/">Privacy Policy</Link>
             <span>&bull;</span>
-            <a href="#">Terms of Service</a>
+            <Link to="/">Terms of Service</Link>
             <span>&bull;</span>
-            <a href="#">Refund Policy</a>
+            <Link to="/">Refund Policy</Link>
           </div>
         </div>
       </div>

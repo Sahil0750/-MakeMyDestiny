@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { getTrips } from '../services/tripService';
 import './Trips.css';
@@ -12,11 +12,7 @@ const Trips = () => {
     search: ''
   });
 
-  useEffect(() => {
-    loadTrips();
-  }, [filters]);
-
-  const loadTrips = async () => {
+  const loadTrips = useCallback(async () => {
     try {
       const data = await getTrips(filters);
       setTrips(data.data);
@@ -25,7 +21,11 @@ const Trips = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters]);
+
+  useEffect(() => {
+    loadTrips();
+  }, [loadTrips]);
 
   const handleFilterChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });

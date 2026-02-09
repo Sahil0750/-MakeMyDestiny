@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 export const AuthContext = createContext();
@@ -8,16 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      loadUser();
-    } else {
-      setLoading(false);
-    }
-  }, [token]);
-
-  const loadUser = async () => {
+  const loadUser = useCallback(async () => {
     try {
       const res = await axios.get('http://localhost:5000/api/auth/me');
       setUser(res.data.data);
@@ -27,7 +18,16 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      loadUser();
+    } else {
+      setLoading(false);
+    }
+  }, [token, loadUser]);
 
   const login = async (email, password) => {
     const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
