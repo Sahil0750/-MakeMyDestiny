@@ -1,0 +1,177 @@
+.trip-detail {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.trip-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.trip-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.trip-content {
+  max-width: 1200px;
+  margin: -3rem auto 0;
+  padding: 0 2rem 3rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.trip-info {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section h2, .info-section h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.highlights {
+  list-style: none;
+  padding: 0;
+}
+
+.highlights li {
+  padding: 0.5rem 0;
+  color: #666;
+}
+
+.trip-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  display: block;
+  color: #667eea;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.booking-form {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.booking-form h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.traveller-form {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.traveller-form h4 {
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.traveller-form input, .traveller-form select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.total-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f0f0f0;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  font-size: 1.2rem;
+}
+
+.amount {
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .trip-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .booking-form {
+    position: static;
+  }
+}

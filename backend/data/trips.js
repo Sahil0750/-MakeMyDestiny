@@ -1,0 +1,282 @@
+// Seed data for Indian tourist destinations
+const trips = [
+  // Jharkhand Destinations
+  {
+    destination: "Netarhat - The Queen of Chotanagpur",
+    state: "Jharkhand",
+    description: "Experience the breathtaking sunrise and sunset views from Netarhat, known as the Queen of Chotanagpur. Enjoy pleasant weather, dense forests, and scenic beauty.",
+    price: 8500,
+    duration: "3 Days / 2 Nights",
+    availableSeats: 25,
+    totalSeats: 30,
+    startDate: new Date('2024-03-15'),
+    endDate: new Date('2024-03-17'),
+    image: "netarhat.jpg",
+    highlights: ["Magnolia Point", "Sunrise/Sunset Views", "Netarhat Dam", "Lower Ghaghri Falls"],
+    category: "Hill Station"
+  },
+  {
+    destination: "Baidyanath Dham, Deoghar",
+    state: "Jharkhand",
+    description: "Visit one of the 12 Jyotirlingas of Lord Shiva. Experience spiritual bliss and divine atmosphere in this holy city.",
+    price: 6500,
+    duration: "2 Days / 1 Night",
+    availableSeats: 40,
+    totalSeats: 50,
+    startDate: new Date('2024-03-20'),
+    endDate: new Date('2024-03-21'),
+    image: "deoghar.jpg",
+    highlights: ["Baidyanath Temple", "Naulakha Mandir", "Tapovan", "Basukinath Temple"],
+    category: "Religious"
+  },
+  {
+    destination: "Betla National Park",
+    state: "Jharkhand",
+    description: "Explore the wildlife sanctuary with tigers, elephants, and diverse flora. Perfect for nature and wildlife enthusiasts.",
+    price: 12000,
+    duration: "4 Days / 3 Nights",
+    availableSeats: 20,
+    totalSeats: 25,
+    startDate: new Date('2024-04-01'),
+    endDate: new Date('2024-04-04'),
+    image: "betla.jpg",
+    highlights: ["Wildlife Safari", "Palamau Fort", "Elephant Rides", "Bird Watching"],
+    category: "Wildlife"
+  },
+  {
+    destination: "Hundru Falls & Ranchi",
+    state: "Jharkhand",
+    description: "Visit the magnificent Hundru Falls (98m) and explore Ranchi's attractions including Tagore Hill and Rock Garden.",
+    price: 7500,
+    duration: "3 Days / 2 Nights",
+    availableSeats: 30,
+    totalSeats: 35,
+    startDate: new Date('2024-03-25'),
+    endDate: new Date('2024-03-27'),
+    image: "hundru.jpg",
+    highlights: ["Hundru Falls", "Tagore Hill", "Rock Garden", "Ranchi Lake"],
+    category: "Adventure"
+  },
+  {
+    destination: "Parasnath Hills - Jain Pilgrimage",
+    state: "Jharkhand",
+    description: "Trek to the highest peak in Jharkhand and visit 24 Jain temples. A spiritual and adventurous journey.",
+    price: 9000,
+    duration: "3 Days / 2 Nights",
+    availableSeats: 22,
+    totalSeats: 30,
+    startDate: new Date('2024-04-10'),
+    endDate: new Date('2024-04-12'),
+    image: "parasnath.jpg",
+    highlights: ["Parasnath Temple", "Trekking", "Jain Temples", "Mountain Views"],
+    category: "Religious"
+  },
+  {
+    destination: "Jonha Falls & Ranchi Circuit",
+    state: "Jharkhand",
+    description: "Discover the beautiful Jonha Falls and nearby attractions. Perfect weekend getaway from Ranchi.",
+    price: 5500,
+    duration: "2 Days / 1 Night",
+    availableSeats: 28,
+    totalSeats: 30,
+    startDate: new Date('2024-03-30'),
+    endDate: new Date('2024-03-31'),
+    image: "jonha.jpg",
+    highlights: ["Jonha Falls", "Gautam Buddha Temple", "Sun Temple", "Dassam Falls"],
+    category: "Adventure"
+  },
+
+  // North India
+  {
+    destination: "Manali - Himachal Pradesh",
+    state: "Himachal Pradesh",
+    description: "Experience snow-capped mountains, adventure sports, and serene valleys in the beautiful hill station of Manali.",
+    price: 18500,
+    duration: "5 Days / 4 Nights",
+    availableSeats: 30,
+    totalSeats: 40,
+    startDate: new Date('2024-04-15'),
+    endDate: new Date('2024-04-19'),
+    image: "manali.jpg",
+    highlights: ["Rohtang Pass", "Solang Valley", "Hadimba Temple", "Old Manali"],
+    category: "Hill Station"
+  },
+  {
+    destination: "Golden Triangle - Delhi, Agra, Jaipur",
+    state: "Multiple",
+    description: "Explore India's most iconic destinations - Delhi's heritage, Agra's Taj Mahal, and Jaipur's royal palaces.",
+    price: 22000,
+    duration: "6 Days / 5 Nights",
+    availableSeats: 35,
+    totalSeats: 45,
+    startDate: new Date('2024-04-20'),
+    endDate: new Date('2024-04-25'),
+    image: "golden-triangle.jpg",
+    highlights: ["Taj Mahal", "Red Fort", "Amber Fort", "Hawa Mahal"],
+    category: "Heritage"
+  },
+  {
+    destination: "Varanasi - Spiritual Capital",
+    state: "Uttar Pradesh",
+    description: "Experience the spiritual essence of India at the ghats of Varanasi. Witness Ganga Aarti and ancient temples.",
+    price: 11000,
+    duration: "3 Days / 2 Nights",
+    availableSeats: 25,
+    totalSeats: 30,
+    startDate: new Date('2024-03-28'),
+    endDate: new Date('2024-03-30'),
+    image: "varanasi.jpg",
+    highlights: ["Ganga Aarti", "Kashi Vishwanath", "Sarnath", "Boat Ride"],
+    category: "Religious"
+  },
+  {
+    destination: "Rishikesh & Haridwar",
+    state: "Uttarakhand",
+    description: "Yoga capital and spiritual hub. Experience river rafting, yoga, and evening Ganga Aarti.",
+    price: 13500,
+    duration: "4 Days / 3 Nights",
+    availableSeats: 28,
+    totalSeats: 35,
+    startDate: new Date('2024-04-05'),
+    endDate: new Date('2024-04-08'),
+    image: "rishikesh.jpg",
+    highlights: ["River Rafting", "Lakshman Jhula", "Har Ki Pauri", "Beatles Ashram"],
+    category: "Adventure"
+  },
+
+  // South India
+  {
+    destination: "Kerala Backwaters",
+    state: "Kerala",
+    description: "Cruise through serene backwaters, stay in houseboats, and experience God's Own Country.",
+    price: 24000,
+    duration: "5 Days / 4 Nights",
+    availableSeats: 20,
+    totalSeats: 25,
+    startDate: new Date('2024-05-01'),
+    endDate: new Date('2024-05-05'),
+    image: "kerala.jpg",
+    highlights: ["Houseboat Stay", "Alleppey", "Kumarakom", "Munnar Tea Gardens"],
+    category: "Beach"
+  },
+  {
+    destination: "Goa Beach Paradise",
+    state: "Goa",
+    description: "Relax on pristine beaches, enjoy water sports, and experience vibrant nightlife in Goa.",
+    price: 16500,
+    duration: "4 Days / 3 Nights",
+    availableSeats: 40,
+    totalSeats: 50,
+    startDate: new Date('2024-04-25'),
+    endDate: new Date('2024-04-28'),
+    image: "goa.jpg",
+    highlights: ["Baga Beach", "Fort Aguada", "Dudhsagar Falls", "Water Sports"],
+    category: "Beach"
+  },
+  {
+    destination: "Mysore & Coorg",
+    state: "Karnataka",
+    description: "Explore royal palaces, coffee plantations, and misty hills of Coorg.",
+    price: 15000,
+    duration: "4 Days / 3 Nights",
+    availableSeats: 25,
+    totalSeats: 30,
+    startDate: new Date('2024-05-10'),
+    endDate: new Date('2024-05-13'),
+    image: "mysore.jpg",
+    highlights: ["Mysore Palace", "Coorg Coffee Estates", "Abbey Falls", "Dubare"],
+    category: "Cultural"
+  },
+
+  // East India
+  {
+    destination: "Darjeeling - Queen of Hills",
+    state: "West Bengal",
+    description: "Experience toy train rides, tea gardens, and stunning views of Kanchenjunga.",
+    price: 17500,
+    duration: "5 Days / 4 Nights",
+    availableSeats: 30,
+    totalSeats: 35,
+    startDate: new Date('2024-04-18'),
+    endDate: new Date('2024-04-22'),
+    image: "darjeeling.jpg",
+    highlights: ["Tiger Hill", "Toy Train", "Tea Gardens", "Batasia Loop"],
+    category: "Hill Station"
+  },
+  {
+    destination: "Sundarbans Mangrove Forest",
+    state: "West Bengal",
+    description: "Explore the world's largest mangrove forest and spot Royal Bengal Tigers.",
+    price: 14000,
+    duration: "3 Days / 2 Nights",
+    availableSeats: 18,
+    totalSeats: 20,
+    startDate: new Date('2024-05-05'),
+    endDate: new Date('2024-05-07'),
+    image: "sundarbans.jpg",
+    highlights: ["Tiger Safari", "Boat Cruise", "Bird Watching", "Mangrove Forests"],
+    category: "Wildlife"
+  },
+
+  // West India
+  {
+    destination: "Udaipur - City of Lakes",
+    state: "Rajasthan",
+    description: "Experience royal heritage, beautiful lakes, and magnificent palaces of Udaipur.",
+    price: 19500,
+    duration: "4 Days / 3 Nights",
+    availableSeats: 28,
+    totalSeats: 35,
+    startDate: new Date('2024-05-15'),
+    endDate: new Date('2024-05-18'),
+    image: "udaipur.jpg",
+    highlights: ["City Palace", "Lake Pichola", "Jag Mandir", "Sajjangarh Fort"],
+    category: "Heritage"
+  },
+  {
+    destination: "Rann of Kutch",
+    state: "Gujarat",
+    description: "Witness the white desert, cultural festivals, and unique landscape of Kutch.",
+    price: 16000,
+    duration: "4 Days / 3 Nights",
+    availableSeats: 22,
+    totalSeats: 30,
+    startDate: new Date('2024-03-22'),
+    endDate: new Date('2024-03-25'),
+    image: "kutch.jpg",
+    highlights: ["White Rann", "Kala Dungar", "Handicrafts", "Cultural Shows"],
+    category: "Cultural"
+  },
+
+  // Northeast India
+  {
+    destination: "Meghalaya - Abode of Clouds",
+    state: "Meghalaya",
+    description: "Explore living root bridges, cleanest village Mawlynnong, and wettest place Cherrapunji.",
+    price: 21000,
+    duration: "6 Days / 5 Nights",
+    availableSeats: 20,
+    totalSeats: 25,
+    startDate: new Date('2024-05-20'),
+    endDate: new Date('2024-05-25'),
+    image: "meghalaya.jpg",
+    highlights: ["Living Root Bridge", "Mawlynnong", "Cherrapunji", "Dawki River"],
+    category: "Adventure"
+  },
+  {
+    destination: "Kaziranga National Park",
+    state: "Assam",
+    description: "Home to one-horned rhinoceros. UNESCO World Heritage Site with rich biodiversity.",
+    price: 18000,
+    duration: "4 Days / 3 Nights",
+    availableSeats: 15,
+    totalSeats: 20,
+    startDate: new Date('2024-04-12'),
+    endDate: new Date('2024-04-15'),
+    image: "kaziranga.jpg",
+    highlights: ["Rhino Safari", "Elephant Ride", "Bird Watching", "Jeep Safari"],
+    category: "Wildlife"
+  }
+];
+
+module.exports = trips;
