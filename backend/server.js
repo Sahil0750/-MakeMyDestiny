@@ -25,6 +25,7 @@ app.use('/api/trips', require('./routes/tripRoutes'));
 app.use('/api/bookings', require('./routes/bookingRoutes'));
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/chatbot', require('./routes/chatbotRoutes'));
+app.use('/api/seed', require('./routes/seedRoutes'));
 
 // Welcome route
 app.get('/', (req, res) => {
