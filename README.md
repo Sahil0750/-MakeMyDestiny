@@ -238,6 +238,14 @@ npm start
 
 Frontend will run on `http://localhost:3000`
 
+## 🌐 Live Demo
+
+**Frontend**: https://make-my-destiny-qj9v.vercel.app/  
+**Backend API**: https://makemydestiny.onrender.com  
+**Database**: MongoDB Atlas
+
+**Note**: First API request may take 50+ seconds due to Render's free tier cold start.
+
 ## 🔑 Demo Credentials
 
 ### Admin Account
