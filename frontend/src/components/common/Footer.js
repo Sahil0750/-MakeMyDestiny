@@ -46,8 +46,8 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Contact Us</h4>
           <ul className="footer-contact">
-            <li>&#128231; support@makemydestiny.com</li>
-            <li>&#128222; +91 98765 43210</li>
+            <li>&#128231; support@mdsahilansari831@gmail.com</li>
+            <li>&#128222; +91 9523176285</li>
             <li>&#128205; Ranchi, Jharkhand, India</li>
             <li>&#128336; Mon - Sat: 9AM - 6PM</li>
           </ul>
@@ -56,7 +56,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <div className="footer-container">
-          <p>&copy; 2024 MakeMyDestiny. All rights reserved.</p>
+          <p>&copy; 2024 MakeMyDestiny. All rights reserved by Md Sahil Ansari.</p>
           <div className="footer-bottom-links">
             <Link to="/">Privacy Policy</Link>
             <span>&bull;</span>
