@@ -6,6 +6,7 @@ import './Trips.css';
 const Trips = () => {
   const [trips, setTrips] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
     state: '',
     category: '',
@@ -14,10 +15,13 @@ const Trips = () => {
 
   const loadTrips = useCallback(async () => {
     try {
+      setLoading(true);
+      setError(null);
       const data = await getTrips(filters);
       setTrips(data.data);
     } catch (error) {
-      console.error(error);
+      console.error('Error loading trips:', error);
+      setError(error.message || 'Failed to load trips. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -31,7 +35,19 @@ const Trips = () => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
   };
 
-  if (loading) return <div className="loading">Loading trips...</div>;
+  if (loading) return <div className="loading">Loading trips... (First load may take 50+ seconds)</div>;
+
+  if (error) {
+    return (
+      <div className="trips-page">
+        <div className="error-message">
+          <h2>⚠️ Error Loading Trips</h2>
+          <p>{error}</p>
+          <button onClick={loadTrips} className="retry-btn">Retry</button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="trips-page">
