@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/bookings';
+const API_URL = 'https://makemydestiny.onrender.com/api/bookings';
 
 export const createBooking = async (bookingData) => {
   const res = await axios.post(API_URL, bookingData);

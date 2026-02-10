@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/chatbot';
+const API_URL = 'https://makemydestiny.onrender.com/api/chatbot';
 
 export const sendMessage = async (message) => {
   const res = await axios.post(API_URL, { message });

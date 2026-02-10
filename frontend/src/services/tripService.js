@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://makemydestiny.onrender.com/api';
 
 export const getTrips = async (filters = {}) => {
   const params = new URLSearchParams(filters);
