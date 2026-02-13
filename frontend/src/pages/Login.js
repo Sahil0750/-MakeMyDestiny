@@ -7,6 +7,7 @@ import './Auth.css';
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const data = await login(formData.email, formData.password);
       toast.success('Welcome back! Login successful!');
@@ -26,17 +28,19 @@ const Login = () => {
       }
     } catch (error) {
       toast.error(error.response?.data?.message || 'Login failed');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>&#127796; Welcome Back!</h2>
+        <h2>🌍 Welcome Back!</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Email Address</label>
-            <span className="input-icon">&#128231;</span>
+            <span className="input-icon">📧</span>
             <input
               type="email"
               name="email"
@@ -44,11 +48,12 @@ const Login = () => {
               onChange={handleChange}
               placeholder="Enter your email"
               required
+              disabled={loading}
             />
           </div>
           <div className="form-group">
             <label>Password</label>
-            <span className="input-icon">&#128274;</span>
+            <span className="input-icon">🔒</span>
             <input
               type={showPassword ? 'text' : 'password'}
               name="password"
@@ -56,24 +61,22 @@ const Login = () => {
               onChange={handleChange}
               placeholder="Enter your password"
               required
+              disabled={loading}
             />
             <span 
               className="password-toggle" 
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? '&#128065;' : '&#128584;'}
+              {showPassword ? '👁️' : '👁️‍🗨️'}
             </span>
           </div>
-          <button type="submit" className="auth-btn">Login Now</button>
+          <button type="submit" className="auth-btn" disabled={loading}>
+            {loading ? 'Signing in...' : 'Sign In'}
+          </button>
         </form>
         <p className="auth-link">
           Don't have an account? <Link to="/register">Create Account</Link>
         </p>
-        <div className="demo-credentials">
-          <p><strong>&#128161; Demo Credentials:</strong></p>
-          <p>&#128100; Admin: admin@makemydestiny.com / admin123</p>
-          <p>&#128100; User: user@test.com / user123</p>
-        </div>
       </div>
     </div>
   );

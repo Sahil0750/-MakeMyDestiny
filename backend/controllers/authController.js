@@ -1,11 +1,17 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
 // Generate JWT Token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE
   });
+};
+
+// Generate Email Verification Token
+const generateVerificationToken = () => {
+  return crypto.randomBytes(32).toString('hex');
 };
 
 // @desc    Register user
@@ -21,20 +27,67 @@ exports.register = async (req, res) => {
       return res.status(400).json({ success: false, message: 'User already exists' });
     }
 
+    // Generate verification token
+    const verificationToken = generateVerificationToken();
+    const verificationExpire = Date.now() + 24 * 60 * 60 * 1000; // 24 hours
+
     // Create user
-    const user = await User.create({ name, email, password, phone });
+    const user = await User.create({ 
+      name, 
+      email, 
+      password, 
+      phone,
+      emailVerificationToken: verificationToken,
+      emailVerificationExpire: verificationExpire
+    });
 
     const token = generateToken(user._id);
 
     res.status(201).json({
       success: true,
       token,
+      message: 'Registration successful! Please verify your email.',
+      verificationToken, // In production, send this via email
       user: {
         id: user._id,
         name: user.name,
         email: user.email,
-        role: user.role
+        role: user.role,
+        isEmailVerified: user.isEmailVerified
       }
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+// @desc    Verify email
+// @route   GET /api/auth/verify-email/:token
+// @access  Public
+exports.verifyEmail = async (req, res) => {
+  try {
+    const { token } = req.params;
+
+    const user = await User.findOne({
+      emailVerificationToken: token,
+      emailVerificationExpire: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      return res.status(400).json({ 
+        success: false, 
+        message: 'Invalid or expired verification token' 
+      });
+    }
+
+    user.isEmailVerified = true;
+    user.emailVerificationToken = undefined;
+    user.emailVerificationExpire = undefined;
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: 'Email verified successfully!'
     });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -73,7 +126,8 @@ exports.login = async (req, res) => {
         id: user._id,
         name: user.name,
         email: user.email,
-        role: user.role
+        role: user.role,
+        isEmailVerified: user.isEmailVerified
       }
     });
   } catch (error) {

@@ -2,16 +2,26 @@
 
 A full-stack MERN application for booking and managing travel reservations across India, with special focus on Jharkhand tourist destinations.
 
-check website =website https://make-my-destiny-qj9v.vercel.app/
+**Live Website**: https://make-my-destiny-qj9v.vercel.app/
+
+## ✨ Latest Updates (v2.0)
+
+🎨 **Professional UI Redesign** - Modern, sleek interface with enhanced user experience
+📧 **Email Verification** - JWT-based secure email verification system
+🔒 **Enhanced Security** - Crypto-based token generation with 24-hour expiration
+⚡ **Better UX** - Loading states, smooth animations, and professional feedback
+
+> See [UPGRADE_GUIDE.md](UPGRADE_GUIDE.md) for detailed changes and [BEFORE_AFTER.md](BEFORE_AFTER.md) for visual comparison.
 
 ## 🚀 Project Overview
 
-**MakeMyDestiny** is a comprehensive travel booking platform that enables users to discover, book, and manage travel reservations securely. The system features role-based access control, real-time booking validation, and an AI-powered chatbot for customer support.
+**MakeMyDestiny** is a comprehensive travel booking platform that enables users to discover, book, and manage travel reservations securely. The system features role-based access control, real-time booking validation, email verification, and an AI-powered chatbot for customer support.
 
 ## 🎯 Key Features
 
 ### 👤 User Features
-- ✅ User Registration & Login with JWT Authentication
+- ✅ User Registration with Email Verification
+- 🔐 Secure Login with JWT Authentication
 - 🔍 Search and filter trips by state, category, and price
 - 📅 Book trips with multiple travellers
 - ✏️ Update booking details
@@ -30,6 +40,9 @@ check website =website https://make-my-destiny-qj9v.vercel.app/
 ### 🔐 Security Features
 - Password hashing using bcrypt
 - JWT token-based authentication
+- Email verification with secure tokens
+- Crypto-based token generation
+- 24-hour token expiration
 - Role-based authorization (User/Admin)
 - Input validation and sanitization
 - Protected API routes
@@ -108,6 +121,7 @@ makemydestiny/
     │   │   ├── Home.css
     │   │   ├── Login.js
     │   │   ├── Register.js
+    │   │   ├── VerifyEmail.js
     │   │   ├── Auth.css
     │   │   ├── Trips.js
     │   │   ├── Trips.css
@@ -140,6 +154,9 @@ makemydestiny/
   password: String (hashed),
   phone: String,
   role: "user" | "admin",
+  isEmailVerified: Boolean,
+  emailVerificationToken: String,
+  emailVerificationExpire: Date,
   createdAt: Date
 }
 ```
@@ -249,21 +266,19 @@ Frontend will run on `http://localhost:3000`
 
 **Note**: First API request may take 50+ seconds due to Render's free tier cold start.
 
-## 🔑 Demo Credentials
+## 📚 Documentation
 
-### Admin Account
-- Email: `admin@makemydestiny.com`
-- Password: `admin123`
-
-### User Account
-- Email: `user@test.com`
-- Password: `user123`
+- **[QUICK_START.md](QUICK_START.md)** - Quick setup and testing guide
+- **[UPGRADE_GUIDE.md](UPGRADE_GUIDE.md)** - Comprehensive upgrade documentation
+- **[BEFORE_AFTER.md](BEFORE_AFTER.md)** - Visual comparison of changes
+- **[INSTALLATION.md](INSTALLATION.md)** - Detailed installation instructions
 
 ## 🌐 API Endpoints
 
 ### Authentication
 - `POST /api/auth/register` - Register new user
 - `POST /api/auth/login` - Login user
+- `GET /api/auth/verify-email/:token` - Verify email address
 - `GET /api/auth/me` - Get current user (Protected)
 
 ### Trips
@@ -334,8 +349,14 @@ Frontend will run on `http://localhost:3000`
 
 ## 🔮 Future Enhancements
 
+- [x] Email verification system
+- [x] Professional UI redesign
+- [x] Loading states and animations
+- [ ] Email service integration (SendGrid/AWS SES)
+- [ ] Password reset functionality
+- [ ] Resend verification email
 - [ ] Payment gateway integration (Razorpay/Stripe)
-- [ ] Email notifications
+- [ ] Email notifications for bookings
 - [ ] SMS alerts
 - [ ] Advanced AI chatbot with NLP
 - [ ] Trip recommendations based on user preferences
@@ -344,6 +365,7 @@ Frontend will run on `http://localhost:3000`
 - [ ] Multi-language support
 - [ ] Social media integration
 - [ ] Mobile app (React Native)
+- [ ] Two-factor authentication
 
 ## 📝 Best Practices Implemented
 
