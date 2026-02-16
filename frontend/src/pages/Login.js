@@ -39,9 +39,10 @@ const Login = () => {
         <h2>🌍 Welcome Back!</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Email Address</label>
-            <span className="input-icon">📧</span>
+            <label htmlFor="email">Email Address</label>
+            <span className="input-icon" aria-hidden="true">📧</span>
             <input
+              id="email"
               type="email"
               name="email"
               value={formData.email}
@@ -52,9 +53,10 @@ const Login = () => {
             />
           </div>
           <div className="form-group">
-            <label>Password</label>
-            <span className="input-icon">🔒</span>
+            <label htmlFor="password">Password</label>
+            <span className="input-icon" aria-hidden="true">🔒</span>
             <input
+              id="password"
               type={showPassword ? 'text' : 'password'}
               name="password"
               value={formData.password}
@@ -66,8 +68,11 @@ const Login = () => {
             <span 
               className="password-toggle" 
               onClick={() => setShowPassword(!showPassword)}
+              role="button"
+              aria-label={showPassword ? 'Hide password' : 'Show password'}
+              tabIndex={0}
             >
-              {showPassword ? '👁️' : '👁️‍🗨️'}
+              {showPassword ? '👁️' : '🔒'}
             </span>
           </div>
           <button type="submit" className="auth-btn" disabled={loading}>

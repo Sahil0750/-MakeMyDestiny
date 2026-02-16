@@ -48,9 +48,10 @@ const Register = () => {
           <>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>Full Name</label>
-                <span className="input-icon">👤</span>
+                <label htmlFor="name">Full Name</label>
+                <span className="input-icon" aria-hidden="true">👤</span>
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -61,9 +62,10 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Email Address</label>
-                <span className="input-icon">📧</span>
+                <label htmlFor="email">Email Address</label>
+                <span className="input-icon" aria-hidden="true">📧</span>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -74,9 +76,10 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Phone Number</label>
-                <span className="input-icon">📞</span>
+                <label htmlFor="phone">Phone Number</label>
+                <span className="input-icon" aria-hidden="true">📞</span>
                 <input
+                  id="phone"
                   type="tel"
                   name="phone"
                   value={formData.phone}
@@ -87,9 +90,10 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label>Password</label>
-                <span className="input-icon">🔒</span>
+                <label htmlFor="password">Password</label>
+                <span className="input-icon" aria-hidden="true">🔒</span>
                 <input
+                  id="password"
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   value={formData.password}
@@ -102,8 +106,11 @@ const Register = () => {
                 <span 
                   className="password-toggle" 
                   onClick={() => setShowPassword(!showPassword)}
+                  role="button"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  tabIndex={0}
                 >
-                  {showPassword ? '👁️' : '👁️🗨️'}
+                  {showPassword ? '👁️' : '🔒'}
                 </span>
               </div>
               <button type="submit" className="auth-btn" disabled={loading}>

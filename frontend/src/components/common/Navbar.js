@@ -39,6 +39,11 @@ const Navbar = () => {
               <span className="nav-icon">🗺️</span> Explore Trips
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/calculator" className="nav-link" onClick={() => setMenuOpen(false)}>
+              <span className="nav-icon">📊</span> Trip Calculator
+            </Link>
+          </li>
           
           {user ? (
             <>

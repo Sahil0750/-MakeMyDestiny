@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import Chatbot from './components/common/Chatbot';
+import TripCalculator from './components/common/TripCalculator';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -44,6 +45,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/verify-email/:token" element={<VerifyEmail />} />
+              <Route path="/calculator" element={<TripCalculator />} />
               <Route path="/trips" element={<Trips />} />
               <Route path="/trips/:id" element={<TripDetail />} />
               <Route 
@@ -66,7 +68,7 @@ function App() {
           </div>
           <Footer />
           <Chatbot />
-          <ToastContainer position="top-right" autoClose={3000} />
+          <ToastContainer position="top-right" autoClose={2000} hideProgressBar={false} />
         </div>
       </Router>
     </AuthProvider>
