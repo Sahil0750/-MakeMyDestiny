@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, AuthContext } from './context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +19,16 @@ import AdminDashboard from './pages/AdminDashboard';
 
 import './App.css';
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 const PrivateRoute = ({ children, adminOnly = false }) => {
   const { user, loading } = React.useContext(AuthContext);
 
@@ -37,6 +47,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <div className="App">
           <Navbar />
           <div className="main-content">
@@ -45,9 +56,30 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/verify-email/:token" element={<VerifyEmail />} />
-              <Route path="/calculator" element={<TripCalculator />} />
-              <Route path="/trips" element={<Trips />} />
-              <Route path="/trips/:id" element={<TripDetail />} />
+              <Route 
+                path="/calculator" 
+                element={
+                  <PrivateRoute>
+                    <TripCalculator />
+                  </PrivateRoute>
+                } 
+              />
+              <Route 
+                path="/trips" 
+                element={
+                  <PrivateRoute>
+                    <Trips />
+                  </PrivateRoute>
+                } 
+              />
+              <Route 
+                path="/trips/:id" 
+                element={
+                  <PrivateRoute>
+                    <TripDetail />
+                  </PrivateRoute>
+                } 
+              />
               <Route 
                 path="/my-bookings" 
                 element={

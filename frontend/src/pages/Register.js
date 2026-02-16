@@ -48,8 +48,7 @@ const Register = () => {
           <>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name">Full Name</label>
-                <span className="input-icon" aria-hidden="true">👤</span>
+                <label htmlFor="name">👤 Full Name</label>
                 <input
                   id="name"
                   type="text"
@@ -62,8 +61,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">Email Address</label>
-                <span className="input-icon" aria-hidden="true">📧</span>
+                <label htmlFor="email">📧 Email Address</label>
                 <input
                   id="email"
                   type="email"
@@ -76,8 +74,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="phone">Phone Number</label>
-                <span className="input-icon" aria-hidden="true">📞</span>
+                <label htmlFor="phone">📞 Phone Number</label>
                 <input
                   id="phone"
                   type="tel"
@@ -90,8 +87,7 @@ const Register = () => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <span className="input-icon" aria-hidden="true">🔒</span>
+                <label htmlFor="password">🔒 Password</label>
                 <input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
